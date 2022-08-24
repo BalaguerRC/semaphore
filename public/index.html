@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <nav class="navar">
+        <h1 class="navbar-title" href="#">Semasforo IoT</h1>
+    </nav>
+    <div class="semasforo">
+        <div class="trafficlight">
+            <div class="protector"></div>
+            <div class="protector"></div>
+            <div class="protector"></div>
+            <div class="red" id="red"></div>
+            <div class="yellow" id="yellow"></div>
+            <div class="green" id="green"></div>
+        </div>
+        <div class="counter-wrap">
+            <div class="counter">
+                <span id="counter-number" class="disable">00</span>
+            </div>
+        </div>
+    
+        <div class="stop-wrap">
+            <div class="smartphone">
+                <div class="power-smartphone"></div>
+                <div class="header-smartphone">
+                    <div class="camera-smartphone"></div>
+                    <div class="speaker-smartphone"></div>
+                </div>
+                <div class="screen-smartphone">
+                    <button class="boton-stop" id="stopbtn">stop</button>
+                </div>
+                <div class="button-smartphone"></div>
+            </div>
+        </div>
+        <div class="table-pasos">
+            <div class="table-wrap">
+                <table class="table"  id="maintable">
+                    <thead>
+                        <tr>
+                            <th>Pasos</th>
+                            <th>Ubicación</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+     
+    
+        <div class="Showdatacrowsing">
+            <div>
+                Total metro: <span id="tm"></span>
+            </div>
+            <div>
+                Total pasos: <span id="tp"></span>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+      <script src="/js/main.js"></script>
+</body>
+</html>

@@ -6,6 +6,7 @@ const counter = document.getElementById("counter-number")
 const counter2 = document.getElementById("counter-number2")
 const stopbtn = document.getElementById("stopbtn")
 const stopbtn2 = document.getElementById("stopbtn2")
+//const mensage= doc
 
 const tm = document.getElementById("tm")
 const tp = document.getElementById("tp")

@@ -3,7 +3,9 @@ const red = document.getElementById("red")
 const yellow = document.getElementById("yellow")
 const green = document.getElementById("green")
 const counter = document.getElementById("counter-number")
+const counter2 = document.getElementById("counter-number2")
 const stopbtn = document.getElementById("stopbtn")
+const stopbtn2 = document.getElementById("stopbtn2")
 
 const tm = document.getElementById("tm")
 const tp = document.getElementById("tp")
@@ -17,8 +19,11 @@ socket.on('connect', function () {
 socket.on('updateSemaphore', function (state) {
     let light = JSON.parse(state).light
     changeLight(light)
+    changeLight2(light)
+    
 
 })
+
 
 socket.on('updateData', function(data) {
 
@@ -41,6 +46,8 @@ socket.on('updateData', function(data) {
    $('#maintable').DataTable()
 })
 
+
+
 function changeLight(light) {
     red.classList.remove("active");
     yellow.classList.remove("active");
@@ -53,6 +60,28 @@ function changeLight(light) {
         case 'RED':
             red.classList.add("active");
             initCounter()
+          break;
+        case 'YELLOW':
+            yellow.classList.add("active");
+
+        break;
+        default:
+          //
+      }
+}
+
+function changeLight2(light) {
+    red.classList.remove("active");
+    yellow.classList.remove("active");
+    green.classList.remove("active");
+
+    switch(light) {
+        case 'GREEN':
+            green.classList.add("active");
+          break;
+        case 'RED':
+            red.classList.add("active");
+            initCounter2()
           break;
         case 'YELLOW':
             yellow.classList.add("active");
@@ -83,7 +112,33 @@ function updateClock() {
     }
 }
 
+var totalTimedc = 0;
+function initCounter2() {
+    totalTimedc = 15
+    counter2.classList.remove("disable");
+
+    updateClock2()
+}
+function updateClock2() {
+    counter2.innerHTML = totalTimedc;
+    if(totalTimedc==0) {
+        counter2.innerHTML = '00';
+        counter2.classList.add("disable");
+
+
+    } else {
+        totalTimedc-=1;
+        setTimeout("updateClock2()",1000);
+    }
+}
+
+
 stopbtn.addEventListener("click", function(){
+    console.log("stop")
+    socket.emit('stop')
+});
+
+stopbtn2.addEventListener("click",function(){
     console.log("stop")
     socket.emit('stop')
 });

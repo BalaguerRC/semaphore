@@ -19,12 +19,10 @@ socket.on('connect', function () {
 socket.on('updateSemaphore', function (state) {
     let light = JSON.parse(state).light
     changeLight(light)
-    changeLight2(light)
-    
-
+    //changeLight2(light)
 })
 
-
+//tabla
 socket.on('updateData', function(data) {
 
     tm.innerHTML = data.totalM
@@ -63,13 +61,13 @@ function changeLight(light) {
           break;
         case 'YELLOW':
             yellow.classList.add("active");
-
+            initCounter2()
         break;
         default:
           //
       }
 }
-
+/*
 function changeLight2(light) {
     red.classList.remove("active");
     yellow.classList.remove("active");
@@ -89,9 +87,9 @@ function changeLight2(light) {
         break;
         default:
           //
-      }
+    }
 }
-
+*/
 var totalTime = 0;
 function initCounter() {
     totalTime = 10
@@ -114,18 +112,17 @@ function updateClock() {
 
 var totalTimedc = 0;
 function initCounter2() {
-    totalTimedc = 15
+    totalTimedc = 5
     counter2.classList.remove("disable");
-
     updateClock2()
+
 }
 function updateClock2() {
     counter2.innerHTML = totalTimedc;
     if(totalTimedc==0) {
         counter2.innerHTML = '00';
         counter2.classList.add("disable");
-
-
+        //
     } else {
         totalTimedc-=1;
         setTimeout("updateClock2()",1000);

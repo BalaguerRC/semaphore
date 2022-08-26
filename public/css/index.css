@@ -257,10 +257,9 @@ span#counter-number2.disable {
 }
 
 .speaker-smartphone {
-  display: inline-block;
   background-color: #000000;
   height: 10px;
-  width: 100px;
+  width: 80px;
   border-radius: 40px;
   margin: auto;
 }
@@ -314,16 +313,17 @@ span#counter-number2.disable {
   border-radius: 25px;
   position: absolute;
   top: 20%;
-  right: 5%;
   right: 0%;
+  width: 300px;
+  height: auto;
   justify-content: right;
-  padding: 30px;
+  padding: 20px;
 }
 
 .Showdatacrowsing {
   position: absolute;
   bottom: 100px;
-  right: 240px;
+  right: 70px;
   padding: 68px;
   background-image: linear-gradient( 135deg, #79F1A4 10%, #0E5CAD 100%);
   padding: 15px;
